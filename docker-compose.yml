@@ -38,4 +38,4 @@ services:
 
     #Нужно указать образ для jbpmn вместо <jbpmn-image>. Также нужно заменить <your-postgres-user>, <your-postgres-password> и <your-postgres-db> на соответствующие настройки для PostgreSQL.
 
-#Необходимо выполнить команду docker-compose up -d в каталоге с файлом docker-compose.yml. Это запустит все контейнеры, указанные в вашем проекте в фоновом режиме.
+    #Необходимо выполнить команду docker-compose up -d в каталоге с файлом docker-compose.yml. Это запустит все контейнеры, указанные в вашем проекте в фоновом режиме.
