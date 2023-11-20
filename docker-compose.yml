@@ -1,0 +1,41 @@
+version: '3'
+services:
+  jbpmn:
+    image: <jbpmn-image>
+    # настройки для jbpmn контейнера
+
+  nginx:
+    image: nginx:latest
+    # настройки для nginx контейнера
+    ports:
+      - "80:80"
+    
+  postgres:
+    image: postgres:latest
+    # настройки для postgres контейнера
+    environment:
+      POSTGRES_USER: <your-postgres-user>
+      POSTGRES_PASSWORD: <your-postgres-password>
+      POSTGRES_DB: <your-postgres-db>
+
+  prom:
+    image: prom/prometheus
+    # настройки для prometheus контейнера
+    ports:
+      - "9090:9090"
+    volumes:
+      - <путь_к_конфигурационным_файлам_prometheus>:/etc/prometheus
+
+  grafana:
+    image: grafana/grafana
+    # настройки для grafana контейнера
+    ports:
+      - "3000:3000"
+
+  node-exporter:
+    image: prom/node-exporter
+    # настройки для node-exporter контейнера
+
+    #Нужно указать образ для jbpmn вместо <jbpmn-image>. Также нужно заменить <your-postgres-user>, <your-postgres-password> и <your-postgres-db> на соответствующие настройки для PostgreSQL.
+
+#Необходимо выполнить команду docker-compose up -d в каталоге с файлом docker-compose.yml. Это запустит все контейнеры, указанные в вашем проекте в фоновом режиме.
